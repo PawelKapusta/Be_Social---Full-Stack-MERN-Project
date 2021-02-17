@@ -39,7 +39,7 @@ export default makeStyles({
   details: {
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '5%',
+    margin: '6%',
   },
   title: {
     padding: '0 5%',
@@ -49,4 +49,8 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  description: {
+    marginBottom: '3%',
+    fontSize: "105%"
+  }
 });
