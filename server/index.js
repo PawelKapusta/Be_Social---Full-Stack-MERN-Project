@@ -44,7 +44,7 @@ app.get('/users',  (req,res) => {
 app.post('/users',  (req, res) => {
   const userName = req.body.fullName;
   console.log("nnnnn",userName);
-  let sql = `INSERT INTO users (FullName) VALUES (${userName})`;
+  let sql = `INSERT INTO users (FullName) VALUES ("${userName}")`;
   console.log(sql)
   db.query(sql,(error, rows, fields) => {
     if (error) {
@@ -96,7 +96,7 @@ app.post('/posts',  (req, res) => {
         console.log("Successful getting UserId query");
         let UserId = rows[0].Id;
         let date = new Date();
-        let year = date.getFullYear(), month = date.getUTCMonth()+ 1, day = date.getUTCDate(), hour = date.getHours(), minutes = date.getMinutes(), seconds = date.getSeconds();
+        let year = date.getFullYear(), month = date.getUTCMonth()+ 1, day = date.getUTCDate(), hour = date.getHours(), minutes = date.getMinutes(), seconds = date.getSeconds(), miliseconds = date.getUTCMilliseconds();
         if(month < 10){
           month = "0" + month;
         }
@@ -112,7 +112,7 @@ app.post('/posts',  (req, res) => {
         if(seconds < 10){
           seconds = "0" + seconds;
         }
-        const currentDate = `CAST(N'${year}-${month}-${day} ${hour}:${minutes}:${seconds}.000' AS DateTime)`;
+        const currentDate = `CAST(N'${year}-${month}-${day} ${hour}:${minutes}:${seconds}.${miliseconds}' AS DateTime)`;
         let sql = `INSERT INTO posts (UserId, Title, Image, Description, Hashtags, Likes, DataPosted) VALUES (${UserId},"${req.body.title}","${req.body.image}","${req.body.message}","${req.body.tags}",0,${currentDate})`;
         db.query(sql,(error, rows, fields) => {
           if (error) {

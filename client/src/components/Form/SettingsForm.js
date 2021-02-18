@@ -11,6 +11,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Column = styled.div`
   display: table-cell;
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   container: {
-    maxHeight: 440,
+    maxHeight: 590,
     width: 550
   },
   parent: {
@@ -57,13 +59,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 const columns = [
   { id: 'Id', label: 'Id', minWidth: 10,align: 'right' },
-  { id: 'FullName', label: 'Full Name', minWidth: 100 },
+  { id: 'FullName', label: 'Full Name', minWidth: 120 },
 ];
 
 const SettingsForm = () => {
   const dispatch= useDispatch();
   const classes = useStyles();
   const users = useSelector((state) => state.users);
+  const name = '';
   console.log(users)
   const [userData, setUserData] = useState({fullName: ''})
   const clear = () => {
@@ -83,7 +86,9 @@ const SettingsForm = () => {
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
+  const handleEditUser = () => {
 
+  }
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
@@ -129,19 +134,20 @@ const SettingsForm = () => {
           </TableHead>
           <TableBody>
             {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((user) => {
+              const name = '';
               return (
                <TableRow hover role="checkbox" tabIndex={-1} key={user.Id} >
                  {columns.map((column) => {
                    const value = user[column.id];
                    return (
                     <TableCell key={column.id} align={column.align}>
-                      {column.format && typeof value === 'number' ? column.format(value) : value}
+                      {value}
                     </TableCell>
                    );
                  })}
                </TableRow>
               );
-            })}
+                })}
           </TableBody>
         </Table>
       </TableContainer>

@@ -19,7 +19,7 @@ const App = () => {
        <UsersProvider>
        <MainNavbar/>
      <Switch>
-       <Route exact path={routes.home} component={HomePage}/>
+       <Route exact path={routes.home} component={HomePage} />
        <Route exact path={routes.posts} component={PostsScreen}/>
        <Route exact path={routes.newPosts} component={New}/>
        <Route exact path={routes.popularPosts} component={Popular}/>
