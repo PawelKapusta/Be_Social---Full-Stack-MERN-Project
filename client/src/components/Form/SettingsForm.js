@@ -103,7 +103,7 @@ const SettingsForm = () => {
     <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit} >
       <Column>
         <Row>
-          <Typography variant="h5" style={{fontSize: 30}}>Creating a User</Typography>
+          <Typography variant="h5" style={{fontSize: 30}}>Create a User</Typography>
         </Row>
       </Column>
       <TextField name="FullName" variant="outlined" label="Full Name" fullWidth value={userData.fullName}
