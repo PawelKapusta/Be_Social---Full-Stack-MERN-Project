@@ -2,8 +2,6 @@ import React, {Component, useEffect} from 'react';
 import {getUsers} from "../actions/users";
 import {useDispatch} from "react-redux";
 import {getPosts} from "../actions/posts";
-import socialImage from '../images/homePosts.png';
-import styled from 'styled-components';
 import '../css/homePage.css';
 
 const HomePage = () => {

@@ -1,4 +1,4 @@
-import React, {Component, useEffect, useRef, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import {Container, Grid, Grow} from "@material-ui/core";
 import Posts from "../components/Posts/Posts";
 import Form from "../components/Form/Form";
@@ -28,7 +28,9 @@ const PostsScreen = () => {
   const handleScrollDown = () => {
     window.scrollTo(0,document.body.scrollHeight);
   }
+
   return (
+
      <div style={{marginTop: "3%",  minHeight: '100vh', height: '2500px',
        position: 'relative'}}>
        <Container maxWidth>

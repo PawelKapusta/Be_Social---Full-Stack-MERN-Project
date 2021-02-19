@@ -9,6 +9,7 @@ import New from './views/New';
 import Contact from "./views/Contact";
 import Popular from "./views/Popular";
 import {UsersProvider} from "./context/UsersContext";
+import {PostsProvider} from "./context/productContext";
 import Settings from "./views/settings";
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
    <BrowserRouter>
      <>
        <UsersProvider>
+         <PostsProvider>
        <MainNavbar/>
      <Switch>
        <Route exact path={routes.home} component={HomePage} />
@@ -26,6 +28,7 @@ const App = () => {
        <Route exact path={routes.contact} component={Contact}/>
        <Route exact path={routes.settings} component={Settings}/>
      </Switch>
+         </PostsProvider>
        </UsersProvider>
        </>
    </BrowserRouter>

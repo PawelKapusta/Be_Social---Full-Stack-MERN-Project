@@ -13,6 +13,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import {deletePost} from "../../actions/posts";
 
 const Column = styled.div`
   display: table-cell;
@@ -73,7 +74,10 @@ const SettingsForm = () => {
     setUserData({ fullName: '' });
   };
   const handleSubmit =   (e) => {{
+    if (window.confirm('Are you sure to add this user?')) {
       dispatch(createUser(userData));
+      // window.location.reload(false);
+    }
     }
     clear();
   }

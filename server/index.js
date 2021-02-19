@@ -43,9 +43,7 @@ app.get('/users',  (req,res) => {
 })
 app.post('/users',  (req, res) => {
   const userName = req.body.fullName;
-  console.log("nnnnn",userName);
   let sql = `INSERT INTO users (FullName) VALUES ("${userName}")`;
-  console.log(sql)
   db.query(sql,(error, rows, fields) => {
     if (error) {
       console.log("Error in inserting user query");
